@@ -1,0 +1,173 @@
+eliska vrzalova
+c00301768
+date: 13/11/2023
+est time: 15 mins
+actual time: 12 mins
+Q1
+
+//variables
+monthNum = 0;
+monthName = "";
+
+//ask user for input 
+display message "Enter a number of a month:";
+input monthNum;
+ 
+ //switch statement
+ 
+ switch(monthNum)
+	case 1:
+		monthName = "January";
+		break;
+	case 2:
+		monthName = "February";
+		break;
+	case 3:
+		monthName = "March";
+		break;
+	case 4:
+		monthName = "April";
+		break;
+	case 5:
+		monthName = "May";
+		break;
+	case 6:
+		monthName = "June";
+		break;
+	case 7:
+		monthName = "July";
+		break;
+	case 8:
+		monthName = "August";
+		break;
+	case 9:
+		monthName = "September";
+		break;
+	case 10:
+		monthName = "October";
+		break;
+	case 11:
+		monthName = "November";
+		break;
+	case 12:
+		monthName = "December";
+		break;
+	default: 
+		monthName = "Error: the number entered is outside the range 1-12.";
+		break;
+end switch
+
+display message "The month is:" + monthName; //answer
+
+//Test data:
+Test 1: user enters: 2, output should be: "February"
+Test 2: user enters: 11, output should be: "November"
+Test 3: user enters: 15, output should be: "Error: the number entered is outside the range 1-12."
+----------------------------------------------------------------------------------------------------------------
+
+eliska vrzalova
+c00301768
+date: 13/11/2023
+est time: 15 mins
+actual time: 17 mins
+Q2
+
+main()
+start function
+
+//variables
+inches = 0;
+centimeters =0;
+
+//ask user for input
+display message "Enter the lenght in centimeters:";
+input centimeters;
+
+//error checking
+if(centimeters <0)
+	display message "Error: the number entered cannot be less than 0";
+else
+	inches = inchEquivalent(centimeters); //function call
+end if
+
+//answer
+display message "The lenght in inches is:" + inches;
+
+end function
+
+inchEquivalent(t_centimeters)
+start function
+
+//variables
+CONVERSION = 0.394;
+inches = 0;
+
+//calculation
+inches = t_centimeters * CONVERSION; //converts centimeters to inches
+
+return inches; //return the inches to the calling function
+
+end function
+
+//Test data
+Test 1: user enters: 100, output should be: "39.4"
+Test 2: user enters: 250, output should be: "98.5"
+Test 3: user enters: -1, output should be: "Error: the number entered cannot be less than 0"
+-----------------------------------------------------------------------------------------------------
+
+eliska vrzalova
+c00301768
+date: 13/11/2023
+est time: 15 mins
+actual time:  mins
+Q3
+
+main()
+start function
+
+//variables
+
+seconds = 0;
+minutes = 0;
+hours = 0;
+totalSeconds = 0;
+//ask user for input
+display message "Enter the amount of seconds:";
+input seconds;
+display message "Enter the amount of minutes:";
+input minutes;
+display message "Enter the amount of hours:";
+input hours;
+
+//error checking
+if(seconds <0 or minutes <0 or hours <0)
+	display message "Error: number entered cannot be less than 0.";
+else
+	totalSeconds = totalSecs(seconds, minutes, hours); //function call
+end if
+
+//answer
+display message "Total time in seconds:" +totalSeconds;
+
+end function
+
+totalSecs(t_seconds, t_minutes, t_hours)
+start function
+
+//variables
+totalSeconds = 0;
+SECONDS = 60;
+
+//calculation
+totalSeconds = t_seconds + (t_minutes*SECONDS) + (t_hours*SECONDS*SECONDS); //calculates the total time in seconds
+
+return totalSeconds;
+
+end function
+
+//test data
+Test 1: user enters: 60 5 1, output should be : 3960
+Test 2: user enters: 120 12 3, output should be: 11 640
+Test 3: user enters: 120 0 3, output should be: "Error: the number entered cannot be less than 0"
+Test 3: user enters: 120 12 0,output should be: "Error: the number entered cannot be less than 0"
+Test 3: user enters:0 12 3 , output should be: "Error: the number entered cannot be less than 0"
