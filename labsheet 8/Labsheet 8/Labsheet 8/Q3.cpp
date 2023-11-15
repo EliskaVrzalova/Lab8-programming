@@ -13,7 +13,7 @@
 #include <iostream>
 
 int totalSecs(int t_seconds, int t_minutes, int t_hours); //function declaration
-int main()
+int main3()
 {
 	//variables in main
 	int seconds = 0;
@@ -39,6 +39,8 @@ int main()
 		totalSeconds = totalSecs(seconds, minutes, hours); //function call
 		std::cout << "Total time in seconds:" << totalSeconds << std::endl;
 	}
+	system("Pause");
+	return 0;
 	
 }
 

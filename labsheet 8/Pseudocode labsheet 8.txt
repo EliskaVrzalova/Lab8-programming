@@ -119,7 +119,7 @@ eliska vrzalova
 c00301768
 date: 13/11/2023
 est time: 15 mins
-actual time:  mins
+actual time: 20 mins
 Q3
 
 main()
@@ -171,3 +171,244 @@ Test 2: user enters: 120 12 3, output should be: 11 640
 Test 3: user enters: 120 0 3, output should be: "Error: the number entered cannot be less than 0"
 Test 3: user enters: 120 12 0,output should be: "Error: the number entered cannot be less than 0"
 Test 3: user enters:0 12 3 , output should be: "Error: the number entered cannot be less than 0"
+----------------------------------------------------------------------------------------------------------------------------------
+eliska vrzalova
+c00301768
+date: 15/11/2023
+est time: 15 mins
+actual time: 20 mins
+Q4
+
+main()
+start function
+
+//variables 
+
+examGrade = "";
+gradeNum = 0;
+
+//input
+display message "Enter your exam grade:";
+input gradeNum;
+
+//error checking
+if(gradeNum <0 or gradeNum >100)
+	display message "Error: the number is outside the range 0-100.";
+else
+	examGrade = getExamGrade(gradeNum); //function call
+	display message + examGrade;
+end if
+
+end function
+
+getExamGrade(t_gradeNum)
+start function
+
+//variables
+examGrade = "";
+FAIL = 40;
+PASS = 55;
+MERIT = 70;
+DISTINCTION = 100;
+
+//grade checking
+
+if(t_gradeNum >=0 and t_gradeNum <FAIL)
+	examGrade = "Student has failed.";
+else if(t_gradeNum >= FAIL and t_gradeNum <PASS)
+	examGrade = "Student has passed.";
+else if(t_gradeNum >= PASS and t_gradeNum < MERIT)
+	examGrade = "Student has a merit,";
+else if(t_gradeNum >= MERIT and <=100)
+	examGrade = "Student has passed with distinction.";
+end else if
+
+return examGrade;
+
+end function
+
+//test data
+//Test 1: User inputs 2, output should be: "Student has failed."
+//Test 2: User inputs 40, output should be: "Student has passed."
+//Test 3: User inputs 47, output should be: "Student has passed."
+//Test 4: User inputs 55, output should be: "Student has a merit."
+//Test 5: User inputs 60, output should be: "Student has a merit."
+//Test 6: User inputs 70, output should be: "Student has distinction."
+//Test 7: User inputs 90, output should be: "Student has passed with distinction."
+//Test 8: User inputs 100, output should be: "Student has passed with distinction."
+//Test 9: User inputs 115, output should be: "Error - the number is outside the range 0-100".
+//Test 10: User inputs -1, output should be : "Error - the number is outside the range 0-100".
+--------------------------------------------------------------------------------------------------------
+
+eliska vrzalova
+c00301768
+date: 15/11/2023
+est time: 15 mins
+actual time: 20 mins
+Q5
+
+main()
+start function
+
+//variables
+
+num1 = 0;
+num2 = 0;
+result = false;
+
+//input
+display message "Enter the first number:";
+input num1;
+display message "Enter the second number:";
+input num2;
+
+//error checking
+if(num1 < 0 or num2 <0)
+	display message "Error: the number entered cannot be less than 0.";
+else
+	result = isDivisible(t_num1, t_num2); //function call
+end if 
+
+//answer
+if(result == false)
+	display message "Number" + num1 + "is not exactly divisible by number" + num2;
+else // result == true
+	display message "Number" + num1 + "is exactly divisible by number" + num2;
+end if 
+
+end function
+
+isDivisible(t_num1, t_num2)
+start function
+
+//variables
+result = false;
+
+if(t_num1 % t_num2 ==0)
+	result = true;
+else
+	result = false;
+end if
+
+return result;
+
+end function
+
+//test data
+//Test 1: User enters: 6 2, output should be: "Number 6 is exactly divisible by number 2."
+//Test 2: User enters: 6 4, output should be: "Number 6 is not exactly divisible by number 4."
+//Test 3: User enters: 6 -1, output should be: "Error: the number entered cannot be less than 0"
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+eliska vrzalova
+c00301768
+date: 15/11/2023
+est time: 20 mins
+actual time: 25 mins
+Q6
+
+main()
+start function
+
+//variables
+cardSuit = "";
+cardName = "";
+
+//function calls
+cardSuit = getCardSuit ();
+cardName = getCardFace();
+
+//answer
+display message "The card is:" + cardName + "" + cardSuit;
+
+end function
+
+
+
+getCardSuit()
+start function
+
+numberSuit = (rand() % 4) +1;
+cardSuit = "";
+
+if(numberSuit == 1)
+	cardSuit = "Hearts";
+
+else if(numberSuit == 2)
+	cardSuit = "Diamonds";
+
+else if(numberSuit == 3)
+	cardSuit = "Spades";
+
+else 
+	cardSuit = "Clubs";
+
+return cardSuit; 
+end function
+
+
+getCardFace()
+start function
+
+numberCard = (rand() % 13) +1;
+cardName = "";
+
+switch(numberCard)
+
+case 1:
+	cardName = "Ace";
+	break;
+case 2:
+	cardName = "2";
+	break;
+case 3:
+	cardName = "3";
+	break;
+case 4:
+	cardName = "4";
+	break;
+case 5:
+	cardName = "5";
+	break;
+
+case 6:
+	cardName = "6";
+	break;
+case 7:
+	cardName = "7";
+	break;
+case 8:
+	cardName = "8";
+	break;
+case 9:
+	cardName = "9";
+	break;
+case 10:
+	cardName = "10";
+	break;
+case 11:
+	cardName = "Jack";
+	break;
+case 12:
+	cardName = "Queen";
+	break;
+case 13:
+	cardName = "King";
+	break;
+end switch
+
+return cardName;
+
+end function
+
+//test data
+//Test 1 : Returned values are: 4 12, output should be: "The card is Queen Clubs"
+//Test 2 : Returned values are: 1 7, output should be: "The card is 7 Hearts"
+//Test 3 : Returned values are: 2 1, output should be: "The card is Ace Diamonds"
+------------------------------------------------------------------------------------------------
+
+
+
+
+
