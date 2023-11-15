@@ -409,6 +409,72 @@ end function
 ------------------------------------------------------------------------------------------------
 
 
+eliska vrzalova
+c00301768
+date: 15/11/2023
+est time: 20 mins
+actual time: 25 mins
+Q7
+
+main()
+start function
+
+//variables
+age = 0;
+price = 0;
+
+//input
+display message "Enter your age:";
+input age;
+
+//error checking
+if(age<0)
+	display message "Error: number entered cannot be less than 0.";
+else
+	price = calculatePrice(age); //function call
+	display message "The price of the ticket is:" + price;
+end if
+
+end function
+
+
+
+calculatePrice(t_age)
+start function
+
+//variables
+price = 0;
+FULL_PRICE = 6;
+FREE_CHILD_AGE = 5;
+HALF_PRICE_AGE = 12;
+FULL_PRICE_AGE_BOTTOM = 13;
+FULL_PRICE_AGE_TOP = 54;
+FREE_ADULT_AGE = 55;
+
+
+if(t_age < FREE_CHILD_AGE)
+	price = 0;
+else if(t_age >= FREE_CHILD_AGE and t_age <= HALF_PRICE_AGE)
+	price = FULL_PRICE / 2;
+else if(t_age >= FULL_PRICE_AGE_BOTTOM and t_age <= FULL_PRICE_AGE_TOP)
+	price = FULL_PRICE;
+else if(t_age >= FREE_ADULT_AGE)
+	price = 0;
+end else if
+
+return price;
+
+end fuction
+
+//test data
+//Test 1: user enters 2, output should be: "The price of the ticket is: 0"
+//Test 2: user enters 5, output should be: "The price of the ticket is: 3"
+//Test 3: user enters 12, output should be: "The price of the ticket is: 3"
+//Test 4: user enters 13, output should be: "The price of the ticket is: 6"
+//Test 5: user enters 54, output should be: "The price of the ticket is: 6"
+//Test 5: user enters 55, output should be: "The price of the ticket is: 0"
+//Test 6: user enters 64, output should be: "The price of the ticket is: 0"
+
 
 
 

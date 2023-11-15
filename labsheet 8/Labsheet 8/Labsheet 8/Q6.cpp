@@ -19,4 +19,91 @@ int main()
 	//variables
 	std::string cardSuit = "";
 	std::string cardName = "";
+
+	//function calls
+	cardSuit = getCardSuit();
+	cardName = getCardFace();
+
+	//answer
+	std::cout << "The card is :" << cardName << " " << cardSuit << std::endl;
+
+	system("Pause");
+	return 0;
+}
+
+std::string getCardSuit()
+//coverts generated number to a card suit string
+{
+	//variables
+	int numberSuit = (rand() % 4) + 1; //generates random number between 1-4
+	std::string cardSuit = "";
+
+	if (numberSuit == 1)
+	{
+		cardSuit = "Hearts";
+	}
+	else if (numberSuit == 2)
+	{
+		cardSuit = "Diamonds";
+	}
+	else if (numberSuit == 3)
+	{
+		cardSuit = "Spades";
+	}
+	else
+	{
+		cardSuit = "Clubs";
+	}
+	return cardSuit;
+}
+
+std::string getCardFace()
+//coverts generated number into card name
+{
+	int numberCard = (rand() % 13) + 1; //generates random number between 1-13
+	std::string cardName = "";
+
+	switch (numberCard)
+	{
+	case 1:
+		cardName = "Ace";
+		break;
+	case 2:
+		cardName = "2";
+		break;
+	case 3:
+		cardName = "3";
+		break;
+	case 4:
+		cardName = "4";
+		break;
+	case 5:
+		cardName = "5";
+		break;
+	case 6:
+		cardName = "6";
+		break;
+	case 7:
+		cardName = "7";
+		break;
+	case 8:
+		cardName = "8";
+		break;
+	case 9:
+		cardName = "9";
+		break;
+	case 10:
+		cardName = "10";
+		break;
+	case 11:
+		cardName = "Jack";
+		break;
+	case 12:
+		cardName = "Queen";
+		break;
+	case 13:
+		cardName = "King";
+		break;
+	}
+	return cardName;
 }
