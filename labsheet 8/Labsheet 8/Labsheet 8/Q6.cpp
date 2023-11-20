@@ -11,10 +11,12 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <ctime>
+
 
 std::string getCardSuit();
 std::string getCardFace();
-int main()
+int main6()
 {
 	//variables
 	std::string cardSuit = "";
@@ -35,6 +37,7 @@ std::string getCardSuit()
 //coverts generated number to a card suit string
 {
 	//variables
+	srand(time(nullptr));
 	int numberSuit = (rand() % 4) + 1; //generates random number between 1-4
 	std::string cardSuit = "";
 
@@ -60,6 +63,7 @@ std::string getCardSuit()
 std::string getCardFace()
 //coverts generated number into card name
 {
+	srand(time(nullptr));
 	int numberCard = (rand() % 13) + 1; //generates random number between 1-13
 	std::string cardName = "";
 

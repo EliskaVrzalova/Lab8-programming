@@ -475,6 +475,134 @@ end fuction
 //Test 5: user enters 55, output should be: "The price of the ticket is: 0"
 //Test 6: user enters 64, output should be: "The price of the ticket is: 0"
 
+---------------------------------------------------------------------------------------------
+eliska vrzalova
+c00301768
+date: 20/11/2023
+est time: 20 mins
+actual time: 14 mins
+Q8
+
+main()
+start function 
+
+//variables
+lenght = 0;
+width = 0;
+area = 0;
+perimeter = 0;
+
+//input
+display message "Enter the lenght in meters:";
+input lenght;
+display message "Enter width in meters:";
+input width;
+
+//error checking
+if(width <= 0 or lenght <= 0)
+	display message "Error: the number entered cannot be less than or equal to 0.";
+else 
+	area = calAreaRectangle(lenght, width);
+	display message "The area of the rectangle is" + area + "meters.";
+	perimeter = calPerimeterRectangle (lenght, width);
+	display message "The perimeter of the rectangle is" + perimeter + "meters.";
+end if
+
+end function
+
+
+calAreaRectangle(t_lenght, t_width)
+start function
+
+//variables
+area = 0;
+
+//calculation
+area = t_lenght * t_width;
+
+return  area;
+
+end function
+
+calPerimeterRectangle(t_lenght, t_width)
+start function
+
+//variables
+perimeter = 0;
+
+//calculation
+perimeter = (t_lenght + t_width) * 2;
+
+return perimeter;
+
+end function
+
+//test data
+//Test 1: user enters 2 5, output should be: "The area is 10 meters." and "The perimeter is 14 meters."
+//Test 2: user enters 4 8, output should be: "The area is 32 meters." and "The perimeter is 24 meters."
+//Test 3: user enters -1 8, output should be : "Error: the number entered cannot be less than or equal to 0."
+//Test 4: user enters 0 8, output should be : "Error: the number entered cannot be less than or equal to 0."
+--------------------------------------------------------------------------------------------------------------------------
+
+eliska vrzalova
+c00301768
+date: 20/11/2023
+est time: 20 mins
+actual time: 14 mins
+Q9
+
+main()
+start function
+
+//variables
+seconds = 0;
+
+//input
+display message "Enter the amount of seconds:",
+input seconds;
+
+//error checking
+if(seconds < 0)
+	display message "Error: the number entered cannot be less than 0.";
+else
+	secsToHMS(seconds);
+end if
+
+end function
+
+secsToHMS(t_seconds)
+start function
+
+//variables
+minutes = 0;
+hours = 0
+seconds = 0;
+SECS_IN_MIN = 60;
+SECS_IN_HOUR = 3600;
+
+//calculation
+minutes = t_seconds % SECS_IN_MIN; // amount of minutes 
+t_seconds = t_seconds - (minutes * SECS_IN_MIN);
+hours = t_seconds % SECS_IN_HOUR; //amount of hours
+t_seconds = t_seconds - (hours * SECS_IN_HOUR); 
+seconds = t_seconds; //amount of seconds;
+
+//answer
+display message "" + t_seconds + " seconds is" + hours + " hours" + minutes "minutes and" + seconds + "seconds.";
+end function
+
+//test data
+//Test 1: user enters 3662, output should be: " 1 hour 1 minute(s) and 2 second(s)."
+//Test 2: user enters 5463, output should be: " 1 hour 31 minute(s) and 3 second(s)."
+//Test 3: user enters -1, output should be: "Error: number ebtered cannot be less than 0."
+
+
+
+
+	
+
+
+
 
 
 
