@@ -581,10 +581,12 @@ SECS_IN_MIN = 60;
 SECS_IN_HOUR = 3600;
 
 //calculation
-minutes = t_seconds % SECS_IN_MIN; // amount of minutes 
-t_seconds = t_seconds - (minutes * SECS_IN_MIN);
 hours = t_seconds % SECS_IN_HOUR; //amount of hours
 t_seconds = t_seconds - (hours * SECS_IN_HOUR); 
+
+minutes = t_seconds % SECS_IN_MIN; // amount of minutes 
+t_seconds = t_seconds - (minutes * SECS_IN_MIN);
+
 seconds = t_seconds; //amount of seconds;
 
 //answer
@@ -595,7 +597,156 @@ end function
 //Test 1: user enters 3662, output should be: " 1 hour 1 minute(s) and 2 second(s)."
 //Test 2: user enters 5463, output should be: " 1 hour 31 minute(s) and 3 second(s)."
 //Test 3: user enters -1, output should be: "Error: number ebtered cannot be less than 0."
+------------------------------------------------------------------------------------------------------
 
+eliska vrzalova
+c00301768
+date: 22/11/2023
+est time: 20 mins
+actual time: 22 mins
+Q10
+
+main()
+start function
+
+//variables
+studentNum = "";
+assessmentMark = 0;
+finalMark = 0;
+studentResult = 0;
+
+//input
+display message "Enter your student number:";
+input studentNum;
+display message "Enter your assessment mark:";
+input assessmentMark;
+display message "Enter your final exam mark:";
+input finalMark;
+
+//error checking
+if(examMark >= 0 and examMark <= 100 and assessmentMark >= 0 and assessmentMark <= 100)
+	studentResult = calFinalResult(assessmentMark, finalMark);
+	display message "Your student number:" + studentNum;
+	display message "Your final result:" + studentResult + "%";
+else
+	display message "Error: exam mark and final mark need to have value 0 - 100.";
+end if
+
+end function
+
+calFinalResult(t_assessmentMark, t_finalMark)
+start function
+
+//variables
+studentResult = 0;
+ASSESSMENT_WEIGHT = 0.3;
+FINAL_EXAM_WEIGHT = 0.7;
+
+//calculation 
+
+t_assessmentMark = t_assessmentMark * ASSESSMENT_WEIGHT;
+t_finalMark = t_finalMark * FINAL_EXAM_WEIGHT;
+studentResult = t_assessmentMark + t_finalMark; //calculates the final percentage result student gets
+
+return studentResult;
+
+end function
+
+//test data
+//Test 1: user enters: 60 80, output should be: "Your final result: 74%"
+//Test 2: user enters: 75 30, output should be: "Your final result: 43.5%"
+//Test 3: user enters: 75 -1, output should be: "Error: exam mark and final mark need to have value 0 - 100."
+//Test 4: user enters: 0 30, output should be: "Your final result: 21%"
+---------------------------------------------------------------------------------------------------------------------------
+
+eliska vrzalova
+c00301768
+date: 22/11/2023
+est time: 20 mins
+actual time: 15 mins
+Q11
+
+main()
+start function
+
+//variables
+passangers = 0;
+journey = 0;
+totalprice = 0;
+
+//input
+display message "Enter the number of passangers:";
+input passangers;
+display message "Enter the lenght of journey in kms:";
+input journey;
+
+//function call
+totalPrice = calCost(passangers, journey);
+
+display message "The total cost of" + passangers + "people travelling" + journey + "kms:" + totalPrice + "euro";
+
+end function
+
+calCost(t_passangers, t_journey)
+start function
+
+//variables
+NO_CHARGE_JOURNEY = 3;
+MIN_CHARGE = 4;
+totalPrice = 0;
+
+//calculation
+if(t_journey <= NO_CHARGE_JOURNEY)
+	totalPrice = passangers * MIN_CHARGE;
+else
+	totalPrice = (passangers * MIN_CHARGE) + (passangers*(t_journey - NO_CHARGE_JOURNEY));
+end if
+
+return totalPrice;
+
+end function
+
+//test data
+//test 1: user enters: 10 3, output should be: "The total cost of 3 people travelling 10 kms: 33 euro
+//test 2: user enters: 3 3, output should be: "The total cost of 3 people travelling 3 kms: 12 euro
+//test 3: user enters: 15 4, output should be: "The total cost of 4 people travelling 15 kms: 64 euro
+-----------------------------------------------------------------------------------------------------------------
+
+eliska vrzalova
+c00301768
+date: 22/11/2023
+est time: 20 mins
+actual time: 15 mins
+Q12
+
+main()
+start function
+
+//variables
+wallHeight = 0;
+noDays = 0;
+
+//input
+display message "Enter the height of the wall in feet:";
+input wallHeight;
+
+//function call
+noDays = calNoDays(wallHeight);
+
+display message "It will take" + noDays + "days for the worm to get to the top of the wall.";
+
+end function
+
+calNodays(t_wallHeight)
+start function
+
+//variables
+oneDay = 1;
+daysTaken = 0;
+
+//calculation
+daysTaken = (oneDay * t_wallHeight) - 1;
+end function
 
 
 

@@ -12,7 +12,7 @@
 
 void secsToHMS(int t_seconds);
 
-int main()
+int main9()
 {
 	//variables
 	int seconds = 0;
@@ -44,10 +44,10 @@ void secsToHMS(int t_seconds)
 	const int SECS_IN_HOUR = 3600;
 
 	//calculation
-	minutes = t_seconds % SECS_IN_MIN; //amount of minutes
+	hours = t_seconds / SECS_IN_HOUR; //amount of hours
+	t_seconds = t_seconds - (hours * SECS_IN_HOUR);
+	minutes = t_seconds / SECS_IN_MIN; //amount of minutes
 	t_seconds = t_seconds - (minutes * SECS_IN_MIN);
-	hours = t_seconds % SECS_IN_HOUR; //amount of hours
-	t_seconds = t_seconds - (hours * SECS_IN_HOUR); 
 	seconds = t_seconds; //amount of seconds
 
 	//answer
